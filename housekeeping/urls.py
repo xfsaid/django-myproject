@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from homepage import views as homepage_views
+from testapp import views as testapp_views
 
 urlpatterns = [
     url(r'^$', homepage_views.welcome,name='welcome'),
     url(r'^index/$', homepage_views.index,name='index'),
     url(r'^admin/', admin.site.urls),
+    url(r'^listing/$', testapp_views.listing,name='listing'),
 ]
