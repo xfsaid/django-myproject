@@ -1,0 +1,41 @@
+<!DOCTYPE=html>  
+<html>
+<head>
+<meta charset="utf-8">
+<script src="jquery.min.js" type="text/javascript"></script>
+<style>
+    .fix{
+        position: fixed;
+}
+</style>
+</head>
+<body>
+    <div class="fix">
+        <p>scrollHeight:<span id="sp1">0</span></p>
+        <p>scrollTop:<span id="sp2">0</span></p>
+        <p>height:<span id="sp3">0</span></p>
+    </div>
+
+    <div class="main" style="height:700px;overflow:auto;">
+        <div class="child" style='border:1px solid red;margin-top:20px;color:grey;height:800px' ></div>
+    </div>
+</body>
+
+
+<script  type="text/javascript">
+$(document).ready(function(){
+    $(".main").unbind("scroll").bind("scroll", function(e){
+        var scrollHeight = this.scrollHeight;
+        $("#sp1").text(scrollHeight);
+        $("#sp2").text($(this).scrollTop());
+        $("#sp3").text($(this).height());
+        if (scrollHeight <= $(this).scrollTop() + $(this).height()) {
+            $(".main").append($(".child").clone());
+            $("#sp1").text(scrollHeight);
+            $("#sp2").text($(this).scrollTop());
+            $("#sp3").text($(this).height());
+        }
+    });
+});
+</script>
+</html>

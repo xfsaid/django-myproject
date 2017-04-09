@@ -4,7 +4,7 @@ from homepage.models import TeacherInfo
 # Create your views here.
 def listing(request):
     contact_list = TeacherInfo.objects.all()
-    paginator = Paginator(contact_list, 1) # Show 25 contacts per page
+    paginator = Paginator(contact_list, 2) # Show 25 contacts per page
  
     page = request.GET.get('page')
     try:
