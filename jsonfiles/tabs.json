@@ -1,0 +1,16 @@
+{
+    "fontFamily":{
+		"1":"欢迎 218 家教",
+		"2":"asdf"
+	},
+
+    "fontSize":{
+		"1":"asdff",
+		"2":"zxcv"
+	},
+	
+    "BaseSettings":{
+        "font":1,
+        "size":2
+    }
+}
