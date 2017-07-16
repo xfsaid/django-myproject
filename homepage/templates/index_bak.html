@@ -19,28 +19,31 @@
 
 <div class="container">
     <div class="ui one column stackable grid">
-      <div class="two wide column">---</div>
+      <div class="four wide column"></div>
+      
       
       <div class="nine wide column">
         <div class="ui segment">
           <div class="ui top attached tabular menu">
-          {% for grade_tab, subjectlist in grade_subject_dict.items %}
-            <a class="item active" data-tab="{{ grade_tab }}">{{ grade_tab }}</a>
-          {% endfor %}
+            <a class="item active" data-tab="first">初中</a>
+            <a class="item" data-tab="second">高中</a>
+            <a class="item" data-tab="third">大学</a>
           </div>
 
-          {% for grade_tab, subjectlist in grade_subject_dict.items %}
-            <div class="ui bottom attached tab  segment" data-tab="{{ grade_tab }}">
-              {% for subject in subjectlist %}
-                <a href="####">{{ subject.tab_subject_dsc }}</a>
-              {% endfor %}
-            </div>
-          {% endfor %}
-          
+          <div class="ui bottom attached tab active segment" data-tab="first">
+            <a >111</a>
+            <p>111</p>
+          </div>
+          <div class="ui bottom attached tab segment" data-tab="second">
+            <p>222</p>
+            <p>222</p>
+          </div>
+          <div class="ui bottom attached tab segment" data-tab="third">
+            <p>333</p>
+            <p>333</p>
+          </div>
         </div>
       </div>
-
-      <div class="two wide column">---</div>
     </div>
 </div>
 

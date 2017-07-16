@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article,Person,TeacherInfo
+from .models import Article,Person,TeacherInfo,GradeSubjectMenu
 # Register your models here.
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ('title','pub_date','update_time',)
@@ -10,8 +10,11 @@ class PersonAdmin(admin.ModelAdmin):
 class TeacherInfoAdmin(admin.ModelAdmin):
     list_display = ('tec_title',)
 
+class GradeSubjectMenuAdmin(admin.ModelAdmin):
+    list_display = ('display',)
 
 
 admin.site.register(Article,ArticleAdmin)
 admin.site.register(Person,PersonAdmin)
 admin.site.register(TeacherInfo,TeacherInfoAdmin)
+admin.site.register(GradeSubjectMenu,GradeSubjectMenuAdmin)

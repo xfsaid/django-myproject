@@ -34,3 +34,16 @@ class TeacherInfo(models.Model):
 
     def __unicode__(self):
         return self.tec_title
+
+class GradeSubjectMenu(models.Model):
+    tab_grade = models.CharField(max_length=20)
+    tab_grade_dsc = models.CharField(max_length=20)
+    tab_subject = models.CharField(max_length=20)
+    tab_subject_dsc = models.CharField(max_length=20)
+    
+    def my_property(self):
+        return self.tab_grade + '-' + self.tab_subject
+    my_property.short_description = "Grade Subject"
+    display = property(my_property)
+    #def __unicode__(self):
+    #    my_property(self)
