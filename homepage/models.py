@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 from __future__ import unicode_literals
 
 from django.db import models
@@ -47,3 +49,21 @@ class GradeSubjectMenu(models.Model):
     display = property(my_property)
     #def __unicode__(self):
     #    my_property(self)
+
+class Grade(models.Model):
+    level = models.CharField("年级等级",max_length = 100)
+    slug = models.CharField("等级地址",max_length = 100)
+    intro = models.CharField("等级介绍",max_length = 100)
+
+    def __unicode__(self):
+        return self.level
+
+class Subject(models.Model):
+    grade_level = models.ManyToManyField(Grade, verbose_name='所属年级')
+
+    subject_name = models.CharField("科目名称",max_length = 100)
+    slug = models.CharField("科目地址",max_length = 100)
+    intro = models.CharField("科目介绍",max_length = 100)
+
+    def __unicode__(self):
+        return '[' + self.subject_name + ']'#显示在路径地址中
