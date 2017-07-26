@@ -47,8 +47,9 @@ class GradeSubjectMenu(models.Model):
         return self.tab_grade + '-' + self.tab_subject
     my_property.short_description = "Grade Subject"
     display = property(my_property)
-    #def __unicode__(self):
-    #    my_property(self)
+
+    def __unicode__(self):
+        return self.my_property()
 
 class Grade(models.Model):
     level = models.CharField("年级等级",max_length = 100)
@@ -65,5 +66,10 @@ class Subject(models.Model):
     slug = models.CharField("科目地址",max_length = 100)
     intro = models.CharField("科目介绍",max_length = 100)
 
+    def my_property(self):
+        return '[' + self.grade_level.first().level + '] ' + self.subject_name
+    my_property.short_description = "[Grade] Subject"
+    display = property(my_property)
+
     def __unicode__(self):
-        return '[' + self.subject_name + ']'#显示在路径地址中
+        return self.subject_name#在路径地址中有显示

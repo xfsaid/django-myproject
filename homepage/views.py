@@ -13,9 +13,6 @@ def welcome(request):
     return HttpResponse(u"%s" % st)
 
 def index(request):
-    subjects = Subject.objects.all()
-
-
     tec_info_list_all = TeacherInfo.objects.all()
     paginator = Paginator(tec_info_list_all, 3)
     page = request.GET.get('page')

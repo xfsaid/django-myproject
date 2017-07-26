@@ -19,8 +19,7 @@ class GradeAdmin(admin.ModelAdmin):
     list_display = ('level','slug','intro')
 
 class SubjectAdmin(admin.ModelAdmin):
-    list_display = ('subject_name','slug','intro') #怎么显示ManyToManyField的数据呢？ ＴＯＤＯ
-    #list_display = ('display',)
+    list_display = ('display','subject_name','slug','intro') #可以显示ManyToManyField的数据
 
 
 
