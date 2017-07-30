@@ -3,7 +3,7 @@ import json
 from django.shortcuts import render,render_to_response
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from django.http import HttpResponse
-from .models import TeacherInfo,GradeSubjectMenu,Subject
+from .models import TeacherInfo,GradeSubjectMenu,GradeInfo
 
 
 
@@ -24,16 +24,20 @@ def index(request):
     except EmptyPage:
         tec_info_list = paginator.page(paginator.num_pages)
 
-    grade_subject_dict = {}
-    grade_dict = GradeSubjectMenu.objects.values('tab_grade').distinct()
-
-    for grade in grade_dict:
-        key = grade['tab_grade']
-        grade_subject_dict[key] = GradeSubjectMenu.objects.filter(tab_grade=key)
+    #grade_subject_dict = {}
+    #grade_dict = GradeSubjectMenu.objects.values('tab_grade').distinct()
+    #for grade in grade_dict:
+    #    key = grade['tab_grade']
+    #    grade_subject_dict[key] = GradeSubjectMenu.objects.filter(tab_grade=key)
+    
+    grade_subject_info = GradeInfo.objects.all()
+    #for grade in grade_subject_info:
+    #    for sub in grade.subject.all():
+    #        print sub.subject_name
 
     return render_to_response('index.html',{
         'tec_info_list':tec_info_list,
-        'grade_subject_dict':grade_subject_dict})
+        'grade_subject_info':grade_subject_info})
 
 
 def loadjsonfile():

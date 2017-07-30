@@ -24,15 +24,15 @@
       <div class="nine wide column">
         <div class="ui segment">
           <div class="ui top attached tabular menu">
-          {% for grade_tab, subjectlist in grade_subject_dict.items %}
-            <a class="item active" data-tab="{{ grade_tab }}">{{ grade_tab }}</a>
+          {% for grade_tab in grade_subject_info %}
+            <a class="item active" data-tab="{{ grade_tab.slug }}">{{ grade_tab.level }}</a>
           {% endfor %}
           </div>
 
-          {% for grade_tab, subjectlist in grade_subject_dict.items %}
-            <div class="ui bottom attached tab  segment" data-tab="{{ grade_tab }}">
-              {% for subject in subjectlist %}
-                <a href="####">{{ subject.tab_subject_dsc }}</a>
+          {% for grade_tab in grade_subject_info %}
+            <div class="ui bottom attached tab  segment" data-tab="{{ grade_tab.slug }}">
+              {% for subject in grade_tab.subject.all %}
+                <a href="{{subject.slug}}">{{ subject.subject_name }}</a>
               {% endfor %}
             </div>
           {% endfor %}

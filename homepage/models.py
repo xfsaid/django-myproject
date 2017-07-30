@@ -50,26 +50,26 @@ class GradeSubjectMenu(models.Model):
 
     def __unicode__(self):
         return self.my_property()
-
-class Grade(models.Model):
-    level = models.CharField("年级等级",max_length = 100)
-    slug = models.CharField("等级地址",max_length = 100)
-    intro = models.CharField("等级介绍",max_length = 100)
-
-    def __unicode__(self):
-        return self.level
-
-class Subject(models.Model):
-    grade_level = models.ManyToManyField(Grade, verbose_name='所属年级')
-
+    
+class SubjectInfo(models.Model):
+    #grade_level = models.ForeignKey(Grade, verbose_name='所属年级')
     subject_name = models.CharField("科目名称",max_length = 100)
     slug = models.CharField("科目地址",max_length = 100)
     intro = models.CharField("科目介绍",max_length = 100)
-
-    def my_property(self):
-        return '[' + self.grade_level.first().level + '] ' + self.subject_name
-    my_property.short_description = "[Grade] Subject"
-    display = property(my_property)
+    
+    #def my_property(self):
+    #    return '[' + self.grade_level.level + '] ' + self.subject_name
+    #my_property.short_description = "[Grade] Subject"
+    #display = property(my_property)
 
     def __unicode__(self):
         return self.subject_name#在路径地址中有显示
+
+class GradeInfo(models.Model):
+    level = models.CharField("年级等级",max_length = 100)
+    slug = models.CharField("等级地址",max_length = 100)
+    intro = models.CharField("等级介绍",max_length = 100)
+    subject = models.ManyToManyField(SubjectInfo,verbose_name = "科目列表")
+
+    def __unicode__(self):
+        return self.level
