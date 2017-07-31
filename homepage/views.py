@@ -35,9 +35,10 @@ def index(request):
     #    for sub in grade.subject.all():
     #        print sub.subject_name
 
-    return render_to_response('index.html',{
-        'tec_info_list':tec_info_list,
-        'grade_subject_info':grade_subject_info})
+    #return render_to_response('index.html',{
+    #    'tec_info_list':tec_info_list,
+    #    'grade_subject_info':grade_subject_info})
+    return render_to_response('index.html',locals())
 
 
 def loadjsonfile():

@@ -25,14 +25,14 @@
         <div class="ui segment">
           <div class="ui top attached tabular menu">
           {% for grade_tab in grade_subject_info %}
-            <a class="item active" data-tab="{{ grade_tab.slug }}">{{ grade_tab.level }}</a>
+            <a class="item {% if forloop.first %} active {%endif%}" data-tab="{{ grade_tab.slug }}">{{ grade_tab.level }}</a>
           {% endfor %}
           </div>
 
           {% for grade_tab in grade_subject_info %}
-            <div class="ui bottom attached tab  segment" data-tab="{{ grade_tab.slug }}">
+            <div class="ui bottom attached tab {% if forloop.first %} active {%endif%} segment" data-tab="{{ grade_tab.slug }}">
               {% for subject in grade_tab.subject.all %}
-                <a href="{{subject.slug}}">{{ subject.subject_name }}</a>
+                <a href="{{subject.slug}}">{{ subject.subject_name }} {% if not forloop.last%} | {%endif%} </a>
               {% endfor %}
             </div>
           {% endfor %}
