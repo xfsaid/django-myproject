@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title></title>
+</head>
+<body>
+<h1>register</h1>
+<form method="post" enctype="multipart/form-data">{% csrf_token %} 
+{{uf.as_p}}
+<input type="submit" value="ok"/>
+</form>
+</body>
+</html>

@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^index/$', homepage_views.index,name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^listing/$', testapp_views.listing,name='listing'),
+    url(r'^register/$', testapp_views.register,name='register'),
 ]
