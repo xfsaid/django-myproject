@@ -25,12 +25,12 @@
         <div class="ui segment">
           <div class="ui top attached tabular menu">
           {% for grade_tab in grade_subject_info %}
-            <a class="item {% if forloop.first %} active {%endif%}" data-tab="{{ grade_tab.slug }}">{{ grade_tab.level }}</a>
+            <a class="item {% if grade_tab.slug == grade_level %} active {%endif%}" data-tab="{{ grade_tab.slug }}">{{ grade_tab.level }}</a>
           {% endfor %}
           </div>
 
           {% for grade_tab in grade_subject_info %}
-            <div class="ui bottom attached tab {% if forloop.first %} active {%endif%} segment" data-tab="{{ grade_tab.slug }}">
+            <div class="ui bottom attached tab {% if grade_tab.slug == grade_level %} active {%endif%} segment" data-tab="{{ grade_tab.slug }}">
               {% for subject in grade_tab.subject.all %}
                 {#<a href="{{grade_tab.slug}}-{{subject.slug}}">{{ subject.subject_name }} {% if not forloop.last%} | {%endif%} </a>#}
                 <a href="?grade_level={{grade_tab.slug}}&subject_level={{subject.slug}}">{{ subject.subject_name }} {% if not forloop.last%} | {%endif%} </a>
@@ -57,12 +57,12 @@
         <img src="{% static 'images/wy1.jpg' %}">
       </div>
       <div class="content">
-        <a class="header">{{info.tec_title}}</a>
+        <a class="header">{{info.first_name}}</a>
         <div class="meta">
-          <a>服务区域：{{info.tec_area}} </a>
+          <a>服务区域：{{info.area}} </a>
         </div>
         <div class="description">
-          {{info.tec_info}}
+          {{info.info}}
         </div>
       </div>
     </div>
@@ -76,13 +76,13 @@
   <div class="ui page grid">
     <div class="ui borderless pagination menu">
       {% if  tec_info_list.has_previous %}
-          <a class="item" href="?page={{ tec_info_list.previous_page_number }}"><i class="left arrow icon"></i>Previous</a>
+          <a class="item" href="?grade_level={{grade_level}}&subject_level={{subject_level}}&page={{ tec_info_list.previous_page_number }}"><i class="left arrow icon"></i>Previous</a>
       {% endif %}
       
       <a href="" class="item">{{ tec_info_list.number }}</a>
 
       {% if tec_info_list.has_next %}
-          <a class="item" href="?page={{ tec_info_list.next_page_number }}"><i class="right arrow icon"></i>Next</a>
+          <a class="item" href="?grade_level={{grade_level}}&subject_level={{subject_level}}&page={{ tec_info_list.next_page_number }}"><i class="right arrow icon"></i>Next</a>
       {% endif %}
     </div>
   </div>

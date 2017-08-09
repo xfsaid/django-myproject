@@ -35,10 +35,10 @@ def index(request):
         tec_info_list = paginator.page(paginator.num_pages)
 
     grade_subject_info = GradeSubject.objects.all()
-    return render_to_response('index.html',{
-       'tec_info_list':tec_info_list,
-       'grade_subject_info':grade_subject_info})
-    # return render_to_response('index.html',locals())
+    # return render_to_response('index.html',{
+    #    'tec_info_list':tec_info_list,
+    #    'grade_subject_info':grade_subject_info})
+    return render_to_response('index.html',locals())
 
 
 def loadjsonfile():
