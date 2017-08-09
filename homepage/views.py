@@ -3,7 +3,7 @@ import json
 from django.shortcuts import render,render_to_response
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from django.http import HttpResponse
-from .models import TeacherInfo,GradeSubjectMenu,GradeInfo
+from .models import Teacher,GradeSubject
 
 
 
@@ -15,14 +15,18 @@ def welcome(request):
 def index(request):
     grade_level = request.GET.get('grade_level')
     subject_level = request.GET.get('subject_level')
-    age = '4'
-    tec_info_list_all = TeacherInfo.objects.filter(tec_age=age)
 
-    #tec_info_list_all = TeacherInfo.objects.all()
+    tec_info_list_all = []
+    for tec_info in Teacher.objects.all():
+        if not subject_level == tec_info.skill2.slug:
+            continue
+        for ti in tec_info.skill.all():
+            if grade_level == ti.slug:
+                tec_info_list_all.append(tec_info)
+                break
+
     paginator = Paginator(tec_info_list_all, 3)
     page = request.GET.get('page')
-    
-
     try:
         tec_info_list = paginator.page(page)
     except PageNotAnInteger:
@@ -30,21 +34,11 @@ def index(request):
     except EmptyPage:
         tec_info_list = paginator.page(paginator.num_pages)
 
-    #grade_subject_dict = {}
-    #grade_dict = GradeSubjectMenu.objects.values('tab_grade').distinct()
-    #for grade in grade_dict:
-    #    key = grade['tab_grade']
-    #    grade_subject_dict[key] = GradeSubjectMenu.objects.filter(tab_grade=key)
-    
-    grade_subject_info = GradeInfo.objects.all()
-    #for grade in grade_subject_info:
-    #    for sub in grade.subject.all():
-    #        print sub.subject_name
-
-    #return render_to_response('index.html',{
-    #    'tec_info_list':tec_info_list,
-    #    'grade_subject_info':grade_subject_info})
-    return render_to_response('index.html',locals())
+    grade_subject_info = GradeSubject.objects.all()
+    return render_to_response('index.html',{
+       'tec_info_list':tec_info_list,
+       'grade_subject_info':grade_subject_info})
+    # return render_to_response('index.html',locals())
 
 
 def loadjsonfile():

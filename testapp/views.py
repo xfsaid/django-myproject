@@ -4,14 +4,14 @@ from django import forms
 from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
 
-from homepage.models import TeacherInfo
+from homepage.models import Teacher
 from .models import User
 
 
 
 # Create your views here.
 def listing(request):
-    contact_list = TeacherInfo.objects.all()
+    contact_list = Teacher.objects.all()
     paginator = Paginator(contact_list, 2) # Show 25 contacts per page
  
     page = request.GET.get('page')
