@@ -19,9 +19,9 @@
 
 <div class="container">
     <div class="ui one column stackable grid">
-      <div class="two wide column">---</div>
+      <div class="three wide column">^</div>
       
-      <div class="nine wide column">
+      <div class="ten wide column">
         <div class="ui segment">
           <div class="ui top attached tabular menu">
           {% for grade_tab in grade_subject_info %}
@@ -32,7 +32,8 @@
           {% for grade_tab in grade_subject_info %}
             <div class="ui bottom attached tab {% if forloop.first %} active {%endif%} segment" data-tab="{{ grade_tab.slug }}">
               {% for subject in grade_tab.subject.all %}
-                <a href="{{subject.slug}}">{{ subject.subject_name }} {% if not forloop.last%} | {%endif%} </a>
+                {#<a href="{{grade_tab.slug}}-{{subject.slug}}">{{ subject.subject_name }} {% if not forloop.last%} | {%endif%} </a>#}
+                <a href="?grade_level={{grade_tab.slug}}&subject_level={{subject.slug}}">{{ subject.subject_name }} {% if not forloop.last%} | {%endif%} </a>
               {% endfor %}
             </div>
           {% endfor %}
@@ -40,7 +41,7 @@
         </div>
       </div>
 
-      <div class="two wide column">---</div>
+      <div class="three wide column">^</div>
     </div>
 </div>
 
