@@ -13,8 +13,8 @@ def welcome(request):
     return HttpResponse(u"%s" % st)
 
 def index(request):
-    grade_level = request.GET.get('grade_level')
-    subject_level = request.GET.get('subject_level')
+    grade_level = request.GET.get('grade_level','gradefirst')
+    subject_level = request.GET.get('subject_level','chinese')
 
     tec_info_list_all = []
     for tec_info in Teacher.objects.all():
