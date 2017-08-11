@@ -19,15 +19,16 @@ from homepage import views as homepage_views
 from testapp import views as testapp_views
 from account import views as account_views
 
+
+
 urlpatterns = [
     url(r'^$', homepage_views.welcome,name='welcome'),
     url(r'^index/$', homepage_views.index,name='index'),
+    url(r'^accounts/profile/$', homepage_views.index),# name = ? 
     url(r'^admin/', admin.site.urls),
     url(r'^listing/$', testapp_views.listing,name='listing'),
     url(r'^register/$', account_views.register,name='register'),
-    # url(r'^login/$', account_views.login_view,name='login'),
-    # url(r'^logout/$', account_views.logout_view,name='logout'),
-    # url(r'^login/$', login),
-    # url(r'^logout/$',logout),
+    url(r'^accounts/login/$', account_views.login_view,name='login'),
+    url(r'^accounts/logout/$', account_views.logout_view,name='logout'),
     url(r'^register2/$', testapp_views.register,name='register2'),
 ]

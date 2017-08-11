@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import auth
+from django.contrib.auth.views import login, logout
 
 # Create your views here.
 
@@ -20,6 +21,15 @@ def register(request):
     else:
         form = UserCreationForm()
     return render_to_response('register.html', RequestContext(request,{'form': form,}))
+
+def login_view(request):
+    #request.GET['redirect_field_name'] = '/index'
+    return login(request)
+
+def logout_view(request):
+    return logout(request)#logged_out.html???
+    #return logout(request,'/index')
+    #return logout(request,'/','registration/login.html')
 
 # @csrf_exempt
 # def login_view(request):
