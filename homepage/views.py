@@ -13,6 +13,9 @@ def welcome(request):
     return HttpResponse(u"%s" % st)
 
 def index(request):
+    if request.user.is_authenticated():
+        logged_username = request.user
+            
     grade_level = request.GET.get('grade_level','gradefirst')
     subject_level = request.GET.get('subject_level','chinese')
 

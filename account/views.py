@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib import auth
 from django.contrib.auth.views import login, logout
 
+
 # Create your views here.
 
 #class UserForm(forms.Form):
@@ -24,11 +25,12 @@ def register(request):
 
 def login_view(request):
     #request.GET['redirect_field_name'] = '/index'
-    return login(request)
+    if not request.user.is_authenticated():   
+        return login(request)
 
 def logout_view(request):
-    return logout(request)#logged_out.html???
-    #return logout(request,'/index')
+    #return logout(request)#logged_out.html???
+    return logout(request,'/index')
     #return logout(request,'/','registration/login.html')
 
 # @csrf_exempt
