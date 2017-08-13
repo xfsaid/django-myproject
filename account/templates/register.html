@@ -3,10 +3,25 @@
 {% block title %}Create an account{% endblock %}
 
 {% block content %}
-  <h1>Create an account</h1>
 
-  <form action="" method="post">
-      {{ form.as_p }}
-      <input type="submit" value="Create the account">
-  </form>
+  <div class="ui middle aligned center aligned grid">
+    <div class="column">
+      <h2 class="ui teal image header">
+        <img src="" class="image">
+        <div class="content">
+          <h1>Create an account</h1>
+        </div>
+      </h2>
+
+      <form action="" method="post" class="ui large form">{% csrf_token %} 
+        <div class="ui stacked segment">
+          {{ form.as_p }}
+          <input type="submit" value="Create the account" class="ui fluid large teal submit button"/>
+        </div>
+        
+        <div class="ui error message"></div>
+      </form>
+
+    </div>
+  </div>
 {% endblock %}
