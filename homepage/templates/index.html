@@ -42,48 +42,48 @@
 
 
 <div class="container">
-<h3 class="ui center aligned header">符合条件的结果</h3>
+  <h3 class="ui center aligned header">符合条件的结果</h3>
 
-<div class="ui container">
-  <div class="ui relaxed divided items">
-  {% for info in tec_info_list %}
-    <div class="item">
-      <div class="ui small image">
-        <img src="{% static 'images/wy1.jpg' %}">
-      </div>
-      <div class="content">
-        <a class="header">{{info.first_name}}</a>
-        <div class="meta">
-          <a>服务区域：{{info.area}} </a>
+  <div class="ui container">
+    <div class="ui relaxed divided items">
+    {% for info in tec_info_list %}
+      <div class="item">
+        <div class="ui small image">
+          <img src="{% static 'images/wy1.jpg' %}">
         </div>
-        <div class="description">
-          {{info.info}}
+        <div class="content">
+          <a class="header">{{info.first_name}}</a>
+          <div class="meta">
+            <a>服务区域：{{info.area}} </a>
+          </div>
+          <div class="description">
+            {{info.info}}
+          </div>
         </div>
       </div>
-    </div>
-  {% endfor %}
-  </div>
-</div>
-
-<br><br><br>
-
-<div class="ui container">
-  <div class="ui page grid">
-    <div class="ui borderless pagination menu">
-      {% if  tec_info_list.has_previous %}
-          <a class="item" href="?grade_level={{grade_level}}&subject_level={{subject_level}}&page={{ tec_info_list.previous_page_number }}"><i class="left arrow icon"></i>Previous</a>
-      {% endif %}
-      
-      <a href="" class="item">{{ tec_info_list.number }}</a>
-
-      {% if tec_info_list.has_next %}
-          <a class="item" href="?grade_level={{grade_level}}&subject_level={{subject_level}}&page={{ tec_info_list.next_page_number }}"><i class="right arrow icon"></i>Next</a>
-      {% endif %}
+    {% endfor %}
     </div>
   </div>
-</div>
 
-<br><br>
+  <br><br><br>
+
+  <div class="ui container">
+    <div class="ui page grid">
+      <div class="ui borderless pagination menu">
+        {% if  tec_info_list.has_previous %}
+            <a class="item" href="?grade_level={{grade_level}}&subject_level={{subject_level}}&page={{ tec_info_list.previous_page_number }}"><i class="left arrow icon"></i>Previous</a>
+        {% endif %}
+        
+        <a href="" class="item">{{ tec_info_list.number }}</a>
+
+        {% if tec_info_list.has_next %}
+            <a class="item" href="?grade_level={{grade_level}}&subject_level={{subject_level}}&page={{ tec_info_list.next_page_number }}"><i class="right arrow icon"></i>Next</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <br><br>
 
 
 </div>

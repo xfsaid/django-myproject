@@ -50,4 +50,4 @@ def register(request):
     #    'uf':uf,
     #})
     #return render_to_response('register.html', c)
-    return render_to_response('register.html', RequestContext(request,{'uf':uf,}))
+    return render_to_response('upload_file.html', RequestContext(request,{'uf':uf,}))

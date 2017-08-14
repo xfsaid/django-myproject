@@ -30,5 +30,5 @@ urlpatterns = [
     url(r'^register/$', account_views.register,name='register'),
     url(r'^accounts/login/$', account_views.login_view,name='login'),
     url(r'^accounts/logout/$', account_views.logout_view,name='logout'),
-    url(r'^register2/$', testapp_views.register,name='register2'),
+    url(r'^upload_file/$', testapp_views.register,name='upload_file'),
 ]

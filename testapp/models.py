@@ -6,5 +6,5 @@ from django.db import models
 
 
 class User(models.Model):
-    usermane = models.CharField(max_length=30)
+    username = models.CharField(max_length=30)
     headimg = models.FileField(upload_to='./upload/')
