@@ -43,6 +43,20 @@ def index(request):
     #    'grade_subject_info':grade_subject_info})
     return render_to_response('index.html',locals())
 
+def view_teacher(request):
+    if request.user.is_authenticated():
+        logged_username = request.user
+
+
+
+
+
+
+        
+    return render_to_response('teacher.html',locals())
+
+
+
 
 def loadjsonfile():
     j_f = open("jsonfiles/tabs.json",'r')

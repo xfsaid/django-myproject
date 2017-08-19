@@ -23,12 +23,16 @@ from account import views as account_views
 
 urlpatterns = [
     url(r'^$', homepage_views.welcome,name='welcome'),
-    url(r'^index/$', homepage_views.index,name='index'),
-    url(r'^accounts/profile/$', homepage_views.index),# name = ? 
+    
     url(r'^admin/', admin.site.urls),
-    url(r'^listing/$', testapp_views.listing,name='listing'),
+    url(r'^index/$', homepage_views.index,name='index'),
+    url(r'^teacher/$', homepage_views.view_teacher,name='teacher'),
+    
     url(r'^register/$', account_views.register,name='register'),
     url(r'^accounts/login/$', account_views.login_view,name='login'),
     url(r'^accounts/logout/$', account_views.logout_view,name='logout'),
+    url(r'^accounts/profile/$', homepage_views.index),# name = ? 
+
     url(r'^upload_file/$', testapp_views.register,name='upload_file'),
+    url(r'^listing/$', testapp_views.listing,name='listing'),
 ]

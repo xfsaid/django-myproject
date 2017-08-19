@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} 218 - Semantic {% endblock %}
+
+{% block content %}
+
+
+
+
+
+<h1 class="ui center aligned header">218家教</h1>
+
+<div class="ui breadcrumb">
+  <a class="section">Home</a>
+  <div class="divider"> / </div>
+  <div class="active section">Teacher</div>
+</div>
+
+
+<div class="pusher">
+  <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      
+      <div class="row">
+        <div class="six wide column">
+          <img src="{% static 'images/teacher_001.jpg' %}" class="ui large bordered rounded image">
+        </div>
+
+        <div class="eight wide column">
+          <h3 class="ui header">上海同步+奥数拓展专业老师</h3>
+          <p>教龄：6年|课时：941|好评数：155</p>
+          <p>认证信息： 实名  学历  认证  |  服务承诺 在线旁听</p>
+          <p>授课区域： 长宁区 静安区 普陀区 闵行区 嘉定区 青浦区</p>
+
+          <h3 class="ui header divider">We Make Bananas That Can Dance</h3>
+          <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
+        </div>
+        
+      </div>
+
+      <div class="row">
+        <div class="center aligned column">
+          <a class="ui huge button green">预约</a>
+          <a class="ui huge button red">咨询</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <div class="ui vertical stripe segment">
+    
+    <div class="ui text container">
+
+      <h2 class="ui header green">教学特点</h2>
+      <p>Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.</p>
+      <a class="ui large button">Read More</a>
+      
+      <h4 class="ui horizontal header divider">
+        <a href="#">Case Studies</a>
+      </h4>
+
+      <h2 class="ui header green">成功案例</h2>
+      <p>Yes I know you probably disregarded the earlier boasts as non-sequitur filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
+      <a class="ui large button">I'm Still Quite Interested</a>
+
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+<!-- style !-->
+<style>
+  body{
+    background-color:#DADADA;
+  }
+  .last.container {
+    margin-bottom: 300px !important;
+  }
+  h1.ui.center.header {
+    margin-top: 3em;
+  }
+  h2.ui.center.header {
+    margin: 4em 0em 2em;
+  }
+  h3.ui.center.header {
+    margin-top: 2em;
+    padding: 2em 0em;
+  }
+  .ui.vertical.menu{
+    width:8rem;
+  }
+</style>
+
+<!-- js !-->
+<script>
+  $(document)
+    .ready(function() {
+      $('.ui.menu .ui.dropdown').dropdown({
+        on: 'hover'
+      });
+
+      $('.menu .item')
+        .tab()
+      ;
+
+      $('.ui.menu a.item')
+        .on('click', function() {
+          $(this)
+            .addClass('active')
+            .siblings()
+            .removeClass('active')
+          ;
+        })
+      ;
+    })
+  ;
+</script>  
+
+{% endblock %}
+  
+
+
