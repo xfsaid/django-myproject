@@ -32,7 +32,7 @@ class UserForm(forms.Form):
     headImg = forms.FileField()
 
 @csrf_exempt
-def register(request):
+def upload_file(request):
     if request.method == "POST":
         uf = UserForm(request.POST,request.FILES)
         if uf.is_valid():

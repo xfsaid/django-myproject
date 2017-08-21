@@ -33,6 +33,6 @@ urlpatterns = [
     url(r'^accounts/logout/$', account_views.logout_view,name='logout'),
     url(r'^accounts/profile/$', homepage_views.index),# name = ? 
 
-    url(r'^upload_file/$', testapp_views.register,name='upload_file'),
+    url(r'^upload_file/$', testapp_views.upload_file,name='upload_file'),
     url(r'^listing/$', testapp_views.listing,name='listing'),
 ]
