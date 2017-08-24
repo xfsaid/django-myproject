@@ -47,7 +47,7 @@ class GradeSubject(models.Model):
 class Teacher(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    image_path = models.ImageField(upload_to='./static/upload/images/teachers',blank=True)
+    image_path = models.ImageField(upload_to='./upload/images/teachers',blank=True)
     age = models.IntegerField(default=0)
     gender = models.CharField(max_length=2, choices=GENDER_CHOICES)
     area = models.CharField(max_length=50)
