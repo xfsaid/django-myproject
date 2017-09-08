@@ -18,8 +18,10 @@ from django.contrib import admin
 from homepage import views as homepage_views
 from testapp import views as testapp_views
 from account import views as account_views
-
-
+from django.views.static import serve
+from housekeeping.settings import MEDIA_ROOT,MEDIA_URL
+#from django.conf import settings
+#from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', homepage_views.welcome,name='welcome'),
@@ -35,4 +37,6 @@ urlpatterns = [
 
     url(r'^upload_file/$', testapp_views.upload_file,name='upload_file'),
     url(r'^listing/$', testapp_views.listing,name='listing'),
-]
+
+    url(r'^media/(?P<path>.*)$', serve, {"document_root":MEDIA_ROOT}),
+]#+ static(MEDIA_URL, document_root=MEDIA_ROOT)
